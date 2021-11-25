@@ -1,13 +1,18 @@
 import { gql, GraphQLClient } from "graphql-request"
 import { GetServerSideProps, NextPage } from "next"
+import style from "../styles/app.module.scss"
 
 interface Props {
   videos: any
 }
 
 const Home: NextPage<Props> = (props) => {
-  // console.log(props.videos)
-  return <div>Home</div>
+  return (
+    <div className={style.app}>
+      <div></div>
+      <img src={props.videos[0].thumbnail.url} />
+    </div>
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -27,6 +32,12 @@ export const getServerSideProps: GetServerSideProps = async () => {
         seen
         slug
         tags
+        thumbnail {
+          url
+        }
+        mp4 {
+          url
+        }
       }
     }
   `
