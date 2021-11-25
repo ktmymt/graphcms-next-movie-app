@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Home: NextPage<Props> = (props) => {
-  console.log(props.videos)
+  // console.log(props.videos)
   return <div>Home</div>
 }
 
